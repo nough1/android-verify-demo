@@ -37,7 +37,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-                editText1.requestFocus();
+                if(s.toString().length()==1) {
+                    editText1.requestFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.showSoftInput(editText1, InputMethodManager.SHOW_FORCED);
+                }
 
             }
         });
